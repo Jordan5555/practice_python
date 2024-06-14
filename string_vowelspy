@@ -1,0 +1,24 @@
+        
+
+
+def vowels(s):
+
+    head = 0
+    tail = len(s)-1
+    s = list(s) 
+    vowels =  ['a', 'e', 'i', 'o', 'u']
+
+    while (head < tail):            
+
+        if s[head] not in vowels:
+            head += 1                
+        
+        elif s[tail] not in vowels:
+            tail -= 1
+        
+        else:    
+            s[head], s[tail] = s[tail], s[head]
+            head += 1
+            tail -= 1
+            
+    return "".join(s)
