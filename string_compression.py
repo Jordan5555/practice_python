@@ -49,7 +49,10 @@ def compress(chars):
 
     for key, val in d.items():
         l.append(key)
-        l.append(str(val))
+
+        if val != 1:
+
+            l.append(str(val))
         
     return l
             
