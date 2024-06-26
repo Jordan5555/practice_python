@@ -19,6 +19,14 @@ def reverseString(s):
         for j in range(i+1, len(s)):
             s[i], s[j] = s[j], s[i]
            
-    return p
+    return s
 
 print(reverseString(["H","a","n","n","a","h"]))
+
+
+def reverseString(s):
+    for i in range(len(s)//2):
+        s[i], s[~i] = s[~i], s[i]
+    return s
+
+
