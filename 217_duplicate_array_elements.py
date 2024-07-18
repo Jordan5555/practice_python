@@ -1,56 +1,95 @@
-# Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+"""
+
+Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
 
  
 
-# Example 1:
+Example 1:
 
-# Input: nums = [1,2,3,1]
-# Output: true
-# Example 2:
+Input: nums = [1,2,3,1]
+Output: true
+Example 2:
 
-# Input: nums = [1,2,3,4]
-# Output: false
-# Example 3:
+Input: nums = [1,2,3,4]
+Output: false
+Example 3:
 
-# Input: nums = [1,1,1,3,3,4,3,2,4,2]
-# Output: true
+Input: nums = [1,1,1,3,3,4,3,2,4,2]
+Output: true
  
 
-# Constraints:
+Constraints:
 
-# 1 <= nums.length <= 105
-# -109 <= nums[i] <= 109
+1 <= nums.length <= 105
+-109 <= nums[i] <= 109
+
+"""
+
+
+'Solution 1:'
 
 
 def containsDuplicate(nums):
-
-	# nums.sort()
-
-	# i = 0
-
-	# while i < (len(nums)-1):
-
-	# 	if nums[i] == nums[i+1]:
-			
-	# 		return True
-
-	# 	else:
-
-	# 		i += 1
-
-	# return False
+    
+    # Convert the list to a set. Sets automatically remove duplicates.
+    nums_set = set(nums)
+    
+    # Compare the length of the set with the length of the original list.
+    # If they are not the same, it means there were duplicates in the list.
+    return len(nums_set) != len(nums)
 
 
 
-	# d = {}
+'Solution 2:'
 
-	# for i in nums:
-	# 	d[i] = d.get(i, 0) + 1
 
-	# return True if max(d.values()) >= 2 else False
-	
+def containsDuplicate(nums):
+    
+    # Initialize an empty dictionary to store the frequency of each element
+    frequency = {}
 
-	# return len(set(nums)) < len(nums)
+    # Iterate through each number in the list
+    for num in nums:
+        
+        # If the number is already in the dictionary, a duplicate is found
+        if num in frequency:
+            return True
+        
+        # Otherwise, add the number to the dictionary
+        frequency[num] = 1
+
+    # If no duplicates are found, return False
+    return False
+
+
+
+'Solution 3:'
+
+
+def containsDuplicate(nums):
+    
+    # Sort the list
+    nums.sort()
+
+    # Initialize index to 0
+    i = 0
+
+    # Iterate through the sorted list
+    while i < (len(nums) - 1):
+        
+        # If the current element is equal to the next element, return True (duplicate found)
+        if nums[i] == nums[i + 1]:
+            return True
+        
+        else:
+            
+            # Move to the next element
+            i += 1
+
+    # If no duplicates are found, return False
+    return False
+
+
 
 
 print(containsDuplicate([1,2,2,3]))

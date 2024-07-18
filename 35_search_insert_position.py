@@ -23,42 +23,60 @@ Output: 4
 """
 
 
+'Solution 1:'
+
 def searchInsert(nums, target):
 
+    # Check if target already exists in nums
+    if target in nums:  
+
+        # Return the index of target if found
+        return nums.index(target)  
     
-    # if target in nums:
-    #     return nums.index(target)
+    # Iterate through nums
+    for index in range(len(nums)): 
+
+        # Find the first element >= target
+        if nums[index] >= target: 
+
+            # Return the index where target should be inserted
+            return index  
+    
+    # If target is larger than all elements in nums, insert at the end
+    return len(nums)  
 
 
-    # for i in range(len(nums)):
-    #     if nums[i] >= target:
-    #         return i
-
-    # return i+1
+    
+'Solution 2:'
 
 
-        
-    # left = 0
-    # right = len(nums)-1
+def searchInsert(nums, target):
 
-    # if target in nums:
-    #     return nums.index(target)
+    # If target is already in nums, return its index
+    if target in nums:
+        return nums.index(target)  
 
-    # while left <= right:
+    # Two pointers
+    left = 0
+    right = len(nums) - 1
 
-    #     mid = left + (right - left) // 2
+    # Perform binary search until left meets or exceeds right
+    while left <= right:  
 
-    #     if nums[mid] > target:
-    #         right = mid - 1
+        # Calculate the middle index
+        mid_point = (right + left) // 2 
 
-    #     elif nums[mid] < target:
-    #         left =  mid + 1
+        # Adjust the search range to the left of mid_point
+        if nums[mid_point] > target:
+            right = mid_point - 1  
 
-    #     else:
-    #         return mid
+        # Adjust the search range to the right of mid_point
+        elif nums[mid_point] < target:
+            left = mid_point + 1  
 
-    # return left
-  
+        # Return mid_point if target is found in nums
+        else:
+            return mid_point  
 
-
-print(searchInsert([1,3,5,6], 2))
+    # Return left index if target is not found, which indicates where target should be inserted
+    return left  

@@ -1,53 +1,68 @@
-# Given a string s, find the first non-repeating character in it and return its index. If it does not exist, return -1.
+"""
+
+Given a string s, find the first non-repeating character in it and return its index. If it does not exist, return -1.
 
  
 
-# Example 1:
+Example 1:
 
-# Input: s = "leetcode"
-# Output: 0
-# Example 2:
+Input: s = "leetcode"
+Output: 0
+Example 2:
 
-# Input: s = "loveleetcode"
-# Output: 2
-# Example 3:
+Input: s = "loveleetcode"
+Output: 2
+Example 3:
 
-# Input: s = "aabb"
-# Output: -1
+Input: s = "aabb"
+Output: -1
  
 
-# Constraints:
+Constraints:
 
-# 1 <= s.length <= 105
-# s consists of only lowercase English letters.
+1 <= s.length <= 105
+s consists of only lowercase English letters.
 
+"""
+
+
+'Solution 1:'
 
 def firstUniqChar(s):
-	
-    counts = {}
 
-    for i in s:
-    	
-    	counts[i] = counts.get(i, 0) + 1
+    # Dictionary to store the frequency of each character
+    freq = {}
 
-    for i in range(len(s)):
+    # Populate the frequency dictionary
+    for char in s:
+        freq[char] = freq.get(char, 0) + 1
 
-        if counts[s[i]] == 1:
-            return i
+    # Find the index of the first unique character
+    for index, char in enumerate(s):
+        if freq[char] == 1:
+            return index
 
-
-    #   for i in s:
-            
-    #         counts[i] = counts.get(i, 0) + 1
-            
-    #     for key, val in counts.items():
-
-    #         if val == 1:
-    #             return s.index(key)
-
-    #     return -1
-
-
+    # If no unique character is found, return -1
     return -1
 
-print(firstUniqChar("loveleetcode"))
+
+
+
+'Solution 2:'
+
+def firstUniqChar(s):
+
+    # Dictionary to store the frequency of each character
+    freq = {}
+
+    # Populate the frequency dictionary
+    for char in s:
+        freq[char] = freq.get(char, 0) + 1
+
+    # Find the index of the first unique character
+    for index, char in freq.items():
+        if char == 1:
+          return s.index(index)
+
+    # If no unique character is found, return -1
+    return -1

@@ -1,45 +1,59 @@
-# You are given an array prices where prices[i] is the price of a given stock on the ith day.
+"""
 
-# You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+You are given an array prices where prices[i] is the price of a given stock on the ith day.
 
-# Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+
+Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
 
  
 
-# Example 1:
+Example 1:
 
-# Input: prices = [7,1,5,3,6,4]
-# Output: 5
-# Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
-# Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
-# Example 2:
+Input: prices = [7,1,5,3,6,4]
+Output: 5
+Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+Example 2:
 
-# Input: prices = [7,6,4,3,1]
-# Output: 0
-# Explanation: In this case, no transactions are done and the max profit = 0.
+Input: prices = [7,6,4,3,1]
+Output: 0
+Explanation: In this case, no transactions are done and the max profit = 0.
  
 
-# Constraints:
+Constraints:
 
-# 1 <= prices.length <= 105
-# 0 <= prices[i] <= 104
+1 <= prices.length <= 105
+0 <= prices[i] <= 104
+
+"""
 
 
+'Solution 1:'
 
-sp = [7,10,5,3,6,4,1]
 
-def func(stock_price):
+stocks = [7,10,5,3,6,4,1]
 
-    buying_price = stock_price[0]
+def maxProfit(prices):
+
+    # Initialize buying_price to the first stock price in the list
+    buying_price = prices[0]
+    
+    # Initialize profit to 0
     profit = 0
 
-    for i in range(1, len(stock_price)):
-        if buying_price > stock_price[i]:
-            buying_price = stock_price[i]
-        
-        elif stock_price[i] - buying_price > profit:
-            profit = stock_price[i] - buying_price
-    
+    # Loop through the stock prices starting from the second element
+    for price in range(1, len(prices)):
+
+        # If the current stock price is less than the buying_price, update the buying_price
+        if buying_price > prices[price]:
+            buying_price = prices[price]
+
+        # If the current profit (current price - buying price) is greater than the stored profit, update the profit
+        elif (prices[price] - buying_price) > profit:
+            profit = (prices[price] - buying_price)
+
+    # Return the maximum profit found
     return profit
 
-print(func(sp))
+

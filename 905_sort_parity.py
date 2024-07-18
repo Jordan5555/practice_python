@@ -1,26 +1,28 @@
-# Given an integer array nums, move all the even integers at the beginning of the array followed by all the odd integers.
+"""
 
-# Return any array that satisfies this condition.
+Given an integer array nums, move all the even integers at the beginning of the array followed by all the odd integers.
+
+Return any array that satisfies this condition.
 
  
 
-# Example 1:
+Example 1:
 
-# Input: nums = [3,1,2,4]
-# Output: [2,4,3,1]
-# Explanation: The outputs [4,2,3,1], [2,4,1,3], and [4,2,1,3] would also be accepted.
-# Example 2:
+Input: nums = [3,1,2,4]
+Output: [2,4,3,1]
+Explanation: The outputs [4,2,3,1], [2,4,1,3], and [4,2,1,3] would also be accepted.
+Example 2:
 
-# Input: nums = [0]
-# Output: [0]
+Input: nums = [0]
+Output: [0]
  
 
-# Constraints:
+Constraints:
 
-# 1 <= nums.length <= 5000
-# 0 <= nums[i] <= 5000
+1 <= nums.length <= 5000
+0 <= nums[i] <= 5000
 
-
+"""
 
 #On**2
 
@@ -41,22 +43,51 @@ def sortArrayByParity(nums):
 print(sortArrayByParity([0,1]))
 
 
-#O(n)
+'Solution 1:'
 
-def sortArrayByParity(nums): 
-    
-    if len(nums) == 1:
-        return nums
+def sortArrayByParity(nums):
 
-    l1 = []
-    l2 = []
+    # Initialize two lists to store even and odd numbers separately
+    even = []
+    odd = []
 
+    # Loop through each number in the input list
     for num in nums:
 
-        if num %2 ==0:
-            l1.append(num)
+        # Check if the number is even
+        if num % 2 == 0:
+
+            # Append even numbers to the 'even' list
+            even.append(num)
 
         else:
-            l2.append(num)
+
+            # Append odd numbers to the 'odd' list
+            odd.append(num)
+
+    # Combine the 'even' and 'odd' lists, with even numbers first
+    return even + odd
+
+
+'Solution 2:'
+
+
+def sortArrayByParity(nums):
+
+    # Initialize the pointer for the position to place the next even number
+    left = 0
+
+    # Iterate through the list with the right pointer
+    for right in range(len(nums)):
+
+        # Check if the current number is even
+        if nums[right] % 2 == 0:
+
+            # Swap the even number with the number at the 'left' pointer
+            nums[left], nums[right] = nums[right], nums[left]
             
-    return l1 + l2
+            # Move the 'left' pointer to the right
+            left += 1
+
+    # The list is now sorted by parity, with all even numbers at the beginning
+    return nums

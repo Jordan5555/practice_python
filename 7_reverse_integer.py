@@ -24,8 +24,6 @@
 
 def reverse(x):
 
-   
-
     if x < 0:  
 
         x = str(x)

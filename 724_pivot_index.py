@@ -1,64 +1,68 @@
-# Given an array of integers nums, calculate the pivot index of this array.
+"""
 
-# The pivot index is the index where the sum of all the numbers strictly to the left of the index is equal to the sum of all the numbers strictly to the index's right.
+Given an array of integers nums, calculate the pivot index of this array.
 
-# If the index is on the left edge of the array, then the left sum is 0 because there are no elements to the left. This also applies to the right edge of the array.
+The pivot index is the index where the sum of all the numbers strictly to the left of the index is equal to the sum of all the numbers strictly to the index's right.
 
-# Return the leftmost pivot index. If no such index exists, return -1.
+If the index is on the left edge of the array, then the left sum is 0 because there are no elements to the left. This also applies to the right edge of the array.
+
+Return the leftmost pivot index. If no such index exists, return -1.
 
  
 
-# Example 1:
+Example 1:
 
-# Input: nums = [1,7,3,6,5,6]
-# Output: 3
-# Explanation:
-# The pivot index is 3.
-# Left sum = nums[0] + nums[1] + nums[2] = 1 + 7 + 3 = 11
-# Right sum = nums[4] + nums[5] = 5 + 6 = 11
-# Example 2:
+Input: nums = [1,7,3,6,5,6]
+Output: 3
+Explanation:
+The pivot index is 3.
+Left sum = nums[0] + nums[1] + nums[2] = 1 + 7 + 3 = 11
+Right sum = nums[4] + nums[5] = 5 + 6 = 11
+Example 2:
 
-# Input: nums = [1,2,3]
-# Output: -1
-# Explanation:
-# There is no index that satisfies the conditions in the problem statement.
-# Example 3:
+Input: nums = [1,2,3]
+Output: -1
+Explanation:
+There is no index that satisfies the conditions in the problem statement.
+Example 3:
 
-# Input: nums = [2,1,-1]
-# Output: 0
-# Explanation:
-# The pivot index is 0.
-# Left sum = 0 (no elements to the left of index 0)
-# Right sum = nums[1] + nums[2] = 1 + -1 = 0
+Input: nums = [2,1,-1]
+Output: 0
+Explanation:
+The pivot index is 0.
+Left sum = 0 (no elements to the left of index 0)
+Right sum = nums[1] + nums[2] = 1 + -1 = 0
  
 
-# Constraints:
+Constraints:
 
-# 1 <= nums.length <= 104
-# -1000 <= nums[i] <= 1000
+1 <= nums.length <= 104
+-1000 <= nums[i] <= 1000
 
+"""
 
 
 def pivotIndex(nums):
-
-	left_sum = 0
-
-	right_sum = sum(nums)
-
-	for i in range(len(nums)):
-
-		right_sum -= nums[i]
-
-		if right_sum == left_sum:
-
-			return i
-		
-		else:
-
-			left_sum += nums[i]
-
-	return -1
-
-
-print(pivotIndex([1,7,3,6,5,6]))
-
+    
+    # Initialize left sum to 0
+    left = 0
+    
+    # Calculate total sum of the array
+    right = sum(nums)
+    
+    # Iterate through each element in the array
+    for i in range(len(nums)):
+        
+        # Update right sum by subtracting current element
+        right -= nums[i]
+        
+        # If left sum equals right sum, return the current index as pivot index
+        if left == right:
+            return i
+        
+        # Otherwise, update left sum by adding current element
+        else:
+            left += nums[i]
+    
+    # If no pivot index is found, return -1
+    return -1

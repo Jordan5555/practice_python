@@ -20,29 +20,47 @@
 # s[i] is a printable ascii character.
 
 
-# results in time exceeded:
+'Solution 1:'
 
 def reverseString(s):
-   
-   
+
+    # Initialize left pointer at the beginning of the string
     left = 0
-    right = len(s)-1
 
-    while left < right:
+    # Initialize right pointer at the end of the string
+    right = len(s) - 1
 
+    # Loop until the pointers meet or cross each other
+    while left <= right:
+
+        # Swap characters at positions left and right
         s[left], s[right] = s[right], s[left]
 
-        left += 1    
+        # Move left pointer to the right
+        left += 1
+        
+        # Move right pointer to the left
         right -= 1
-
+  
+    # Return the modified string s with characters reversed in place
     return s
 
-print(reverseString(["h","e","l","l","o"]))
 
 
-# def reverseString(s):
-#     for i in range(len(s)//2):
-#         s[i], s[~i] = s[~i], s[i]
-#     return s
+'Solution 2:'
+
+
+
+def reverseString(s):
+
+    # Iterate over the first half of the string
+    for i in range(len(s) // 2):
+
+        # Swap characters using Python's extended slicing and negative indexing
+        s[i], s[~i] = s[~i], s[i]
+
+    # Return the reversed string (although in Python, this is modifying the list in place)
+    return s
+
 
 
