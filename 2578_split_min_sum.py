@@ -62,3 +62,4 @@ def splitNum(x):
     # Return their sum
     return even_num + odd_num
 
+print(func(4325))

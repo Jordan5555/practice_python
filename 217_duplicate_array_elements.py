@@ -91,5 +91,26 @@ def containsDuplicate(nums):
 
 
 
+'Solution 4: '
+
+
+def func(nums):
+    # Initialize a dictionary to keep track of the frequency of each number
+    freq = {}
+
+    # Iterate through each number in the list
+    for num in nums:
+        # Increment the frequency of the number
+        freq[num] = freq.get(num, 0) + 1
+
+    # Check if any number has a frequency of 1
+    for count in freq.values():
+        if count == 1:
+            # If any number appears only once, return False
+            return False
+
+    # If all numbers appear more than once, return True
+    return True
+
 
 print(containsDuplicate([1,2,2,3]))

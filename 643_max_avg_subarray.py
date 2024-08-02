@@ -23,6 +23,9 @@ n == nums.length
 1 <= k <= n <= 105
 -104 <= nums[i] <= 104
 
+Link to check: https://www.youtube.com/watch?v=UdUUnoiLkPg
+
+
 """
 
 

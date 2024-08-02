@@ -28,7 +28,14 @@ Constraints:
 -231 <= nums[i] <= 231 - 1
 nums[i] != nums[i + 1] for all valid i.
 
+
+Link to check: https://www.youtube.com/watch?v=zOPlx3ppyWU
+
+
 """
+
+
+
 
 'Solution 1:' 
 
@@ -46,6 +53,7 @@ def findPeakElement(nums):
 
         # If the middle element is greater than the next element
         if nums[mid] > nums[mid + 1]:
+
             # Then the peak element is in the left half (including mid)
             right = mid
 
@@ -55,3 +63,6 @@ def findPeakElement(nums):
 
     # Return the index of the peak element
     return left
+
+
+print(findPeakElement([1,2,3,1]))

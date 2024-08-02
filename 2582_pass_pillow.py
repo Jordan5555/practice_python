@@ -38,7 +38,7 @@ def passThePillow(n, time):
 
     # Use modulo operation to find the effective position in the sequence after 'time' units
     # The cycle length is 2*n - 2 (forward and backward without repeating the ends)
-    return people[time % (2 * n - 2)]
+    return people[time % ((2 * n) - 2)]
 
 
 print(passThePillow(4,5))

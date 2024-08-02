@@ -98,10 +98,7 @@ def maxDifference(num):
             max_diff = max(max_diff, diff)
     
     return max_diff
+    
 
 # Example usage
-print(maxDifference(1234))  # Example output based on the problem description
-
-
-
-print(minMaxDifference(111))
+print(maxDifference(11891))  # Example output based on the problem description

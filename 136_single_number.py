@@ -70,4 +70,3 @@ def singleNumber(nums):
     return result
 
 
-print(singleNumber([4,1,2,1,2]))

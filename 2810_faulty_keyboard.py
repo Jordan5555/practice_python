@@ -63,10 +63,14 @@ def finalString(s):
 
     # Iterate through each character in the input string
     for char in s:
+
         if char != 'i':
+
             # If the character is not 'i', add it to the output string
             out += char
+
         else:
+            
             # If the character is 'i', reverse the current output string
             out = out[::-1]
 
@@ -81,15 +85,23 @@ def finalString(s):
 
 def finalString(s):
 
+    # Initialize the pointers for iterating through the string
     left = 0
-    right = -1
+    right = 0
+
+    # Initialize the output string
     out = ""
 
     # Iterate through the string using the right pointer
     while right < len(s) - 1:
-        right += 1
 
-        if s[right] == 'i':
+        if s[right] != 'i':
+
+            # If the current character is not 'i', move to the next character
+            right += 1
+
+        else:
+
             # Add the segment from left to right (exclusive) to the output
             out += s[left:right]
 
@@ -99,8 +111,48 @@ def finalString(s):
             # Move the left pointer to the character after the current 'i'
             left = right + 1
 
+            # Move to the next character after 'i'
+            right += 1
+
     # Add the remaining segment after the last 'i' to the output
-    return out + s[left:right+1]
+    return out + s[left:]
+
+# Test the function with an example
+print(finalString("poiinter"))
+
+
+
+
+'Solution 3: '
+
+
+def faulty(s):
+
+    # Initialize the position index for iterating through the input string
+    right = 0
+
+    # Initialize an empty list to build the new string efficiently
+    new = []
+
+    # Loop through each character in the input string
+    while right < len(s):
+
+        if s[right] != "i":
+
+            # If the current character is not 'i', append it to the new list
+            new.append(s[right])
+
+        else:
+
+            # If the current character is 'i', reverse the current new list
+            new.reverse()
+
+        # Move to the next character in the input string
+        right += 1
+
+    # Join the list into a string and return it
+    return ''.join(new)
+
 
 
 

@@ -27,9 +27,21 @@ All the integers in nums are unique.
 nums is sorted in ascending order.
 
 
+Link to check: https://www.youtube.com/watch?v=s4DPM8ct1pI
+
+
 """
 
+
+'Solution 1: Same as 35'
+
 def search(nums, target):
+
+    # Check if target already exists in nums
+    if target in nums:  
+
+        # Return the index of target if found
+        return nums.index(target) 
 
     # Initialize the left pointer to the start of the array
     left = 0
@@ -41,7 +53,8 @@ def search(nums, target):
     while left <= right:
 
         # Calculate the middle index
-        mid = left + (right - left) // 2
+        # mid = left + (right - left) // 2
+        mid = (right + left) // 2 
         
         # If the middle element is less than the target, move the left pointer to mid + 1 to search the right half
         if nums[mid] < target:

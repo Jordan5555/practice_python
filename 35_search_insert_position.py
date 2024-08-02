@@ -20,10 +20,13 @@ Input: nums = [1,3,5,6], target = 7
 Output: 4
 
 
+Link to check: https://www.youtube.com/watch?v=v4J_AWp-6EQ
+
+
 """
 
 
-'Solution 1:'
+'Solution 1: Same as 704'
 
 def searchInsert(nums, target):
 

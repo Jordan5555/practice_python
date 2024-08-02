@@ -22,6 +22,11 @@ Example 3:
 Input: s = "(]"
 Output: false
 
+
+Link to check: https://www.youtube.com/watch?v=YwvHeouhy6s
+
+
+
 """
 
 

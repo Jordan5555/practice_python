@@ -81,3 +81,31 @@ def remove_elem(nums, val):
 
 
 print(remove_elem(([2,2,1,3,0]), 2))
+
+
+
+'Solution 3: '
+
+
+def remove_elem(nums, val):
+
+    # Initialize the index for the next position of the non-val element
+    k = 0  
+
+    # Iterate through each number in the list
+    for num in nums:  
+
+        # Check if the number is not equal to the value to remove
+        if num != val:  
+
+            # Place the non-val element at the current position k
+            nums[k] = num  
+
+            # Move to the next position
+            k += 1  
+
+    # Return the list up to the k-th position
+    return nums[:k]  
+
+# Test the function
+print(func(nums = [0,1,2,2,3,0,4,2], val = 2))

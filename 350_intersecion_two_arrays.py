@@ -1,6 +1,8 @@
 """
 
-Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must appear as many times as it shows in both arrays and you may return the result in any order.
+Given two integer arrays nums1 and nums2, return an array of their intersection. 
+
+Each element in the result must appear as many times as it shows in both arrays and you may return the result in any order.
 
  
 
@@ -56,9 +58,25 @@ def intersect(nums1, nums2):
 
   
 
+'Solution 2: Worst'
 
-nums1 = [1,2,2,1]
 
-nums2 = [2,2]
+def func(nums1, nums2):
+    # Initialize an empty list to store the output
+    out = []
 
-print(intersect(nums1, nums2))
+    # Loop through each element in nums1
+    for i in nums1:
+
+        # Check if the current element i is in nums2
+        if i in nums2:
+
+            # If i is in nums2, append it to the output list
+            out.append(i)
+
+            # Remove the first occurrence of i from nums2
+            nums2.remove(i)
+
+    # Return the output list containing the intersection of nums1 and nums2
+    return out
+

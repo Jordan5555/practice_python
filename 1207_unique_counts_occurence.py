@@ -27,7 +27,7 @@ Constraints:
 
 """
 
-'Solution 1:'
+'Solution 1: '
 
 def uniqueOccurrences(arr):
 
@@ -55,7 +55,7 @@ def uniqueOccurrences(arr):
     return True
 
 
-'Solution 2:'
+'Solution 2: '
 
 def uniqueOccurrences(arr):
     
@@ -71,3 +71,26 @@ def uniqueOccurrences(arr):
 
     # If the number of unique frequencies equals the number of different elements, return True
     return len(counts) == len(freq)
+
+
+'Solution 3: '
+
+def func(arr):
+
+    # Initialize an empty set to keep track of unique counts of elements
+    counter = set()
+
+
+    # Loop through each unique element in arr by converting arr to a set
+    for num in set(arr):
+
+        # If the count of the current element in arr is already in counter, return False
+        if arr.count(num) in counter:
+            return False
+
+        # Add the count of the current element to the set counter
+        counter.add(arr.count(num))
+
+    # If no duplicate counts are found, return True
+    return True
+

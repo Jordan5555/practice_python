@@ -29,6 +29,8 @@ Constraints:
 s consists of lowercase English letters.
 1 <= k <= s.length
 
+Link to check: https://www.youtube.com/watch?v=kEfPSzgL-Ss
+
 
 """
 
@@ -57,3 +59,6 @@ def maxVowels(s, k):
 
     # Return the maximum count of vowels found in any substring of length 'k'
     return max_count
+
+
+print(maxVowels(s = "abciiidef", k = 3))

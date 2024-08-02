@@ -7,7 +7,7 @@ answer2 : the number of indices i such that nums2[i] exists in nums1.
 Return [answer1,answer2].
 
  
-
+ 
 Example 1:
 
 Input: nums1 = [2,3,2], nums2 = [1,2]

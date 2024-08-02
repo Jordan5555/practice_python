@@ -37,8 +37,10 @@ def sortColors(nums):
     
     # Traverse the list and use a simple bubble sort approach
     for i in range(len(nums) - 1):
+
         # Compare each element with the elements after it
         for j in range(i + 1, len(nums)):
+            
             # If the element at j is less than the element at i, swap them
             if nums[j] < nums[i]:
                 # Perform the swap

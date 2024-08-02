@@ -24,7 +24,9 @@ Constraints:
 
 """
 
-#On**2
+
+'Solution 1: Worst'
+
 
 def sortArrayByParity(nums): 
     
@@ -33,17 +35,18 @@ def sortArrayByParity(nums):
         return nums
 
     for i in range(len(nums)):
-        for j in range(len(nums)):
-            if nums[i] %2 != 0:
+        for j in range(i+1, len(nums)):
+            if nums[i] %2 != 0 and nums[j] %2 ==0:
                 nums[i], nums[j] = nums[j], nums[i]
 
 
-    return nums[::-1]
+    return nums
 
-print(sortArrayByParity([0,1]))
+print(sortArrayByParity([3,1,2,4]))
 
 
-'Solution 1:'
+
+'Solution 2:'
 
 def sortArrayByParity(nums):
 
@@ -69,7 +72,9 @@ def sortArrayByParity(nums):
     return even + odd
 
 
-'Solution 2:'
+
+
+'Solution 3:'
 
 
 def sortArrayByParity(nums):
@@ -91,3 +96,5 @@ def sortArrayByParity(nums):
 
     # The list is now sorted by parity, with all even numbers at the beginning
     return nums
+
+print(sortArrayByParity([3,1,2,4,6,8,9,11,13,7,10]))

@@ -45,3 +45,6 @@ def canJump(nums):
         return True
 
     return False
+
+
+print(canJump(nums = [2,3,1,1,4]))

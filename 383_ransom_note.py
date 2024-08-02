@@ -4,6 +4,7 @@ Given two strings ransomNote and magazine, return true if ransomNote can be cons
 
 Each letter in magazine can only be used once in ransomNote.
 
+
  
 
 Example 1:
@@ -45,15 +46,11 @@ def func(ransomNote, magazine):
     for char in ransomNote:
 
         # Check if the character is present in the magazine dictionary
-        if char in magazine_dict:
+        if char in magazine_dict and magazine_dict[char] > 0:
 
             # Decrease the count of the character in the dictionary
             magazine_dict[char] -= 1
-
-            # If the count goes below 0, return False as we don't have enough characters
-            if magazine_dict[char] < 0:
-                return False
-        
+            
         else:
 
             # If the character is not in the magazine dictionary, return False

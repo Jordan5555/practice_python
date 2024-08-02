@@ -33,6 +33,10 @@ Example 2:
 Input: nums = [2,2,1,1,1,2,2]
 Output: 2
 
+
+Links to check: https://www.youtube.com/watch?v=bg6r_fgtpMQ
+
+
 """
 
 
@@ -70,15 +74,11 @@ def majority(nums):
 
 
 from collections import Counter
-
-
 def func(nums):
-
 
     # Dictionary to store frequencies of each number
     freq = Counter(nums)
 
-    
     # Find the number with the highest frequency (majority element)
     return freq.most_common(1)[0][0]
 

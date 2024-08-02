@@ -9,6 +9,8 @@ Input: haystack = "sadbutsad", needle = "sad"
 Output: 0
 Explanation: "sad" occurs at index 0 and 6.
 The first occurrence is at index 0, so we return 0.
+
+
 Example 2:
 
 Input: haystack = "leetcode", needle = "leeto"
@@ -67,3 +69,37 @@ def strStr(haystack, needle):
 
 
 print(strStr(haystack = "leetcode", needle = "leet"))
+
+
+'Solution 3: '
+
+
+def func(haystack, needle):
+    
+    # Initialize the left pointer to the start of the haystack
+    left = 0  
+    
+    # Initialize the right pointer to the length of the needle
+    right = len(needle)
+
+    # Loop until the right pointer reaches the end of the haystack
+    while right <= len(haystack):
+        
+        # Check if the current window in the haystack matches the needle
+        if haystack[left:right] == needle:
+            
+            # If a match is found, return the starting index
+            return left
+        
+        else:
+            
+            # If no match is found, move the window one character to the right
+            left += 1
+            right += 1
+
+    # If the needle is not found in the haystack, return -1
+    return -1
+
+# Test the function with an example
+print(func(haystack = "sadbutjunglesad", needle = "jungle"))
+

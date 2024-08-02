@@ -31,6 +31,7 @@ Constraints:
 
 """
 
+
 'Solution 1:'
 
 def findDifference(nums1, nums2):
@@ -56,14 +57,19 @@ def findDifference(nums1, nums2):
 
 
 def findDifference(nums1, nums2):
+
+	# Converting both lists into set
     set1 = set(nums1)
     set2 = set(nums2)
     
-    l1 = list(set1 - set2)  # Elements in set1 but not in set2
-    l2 = list(set2 - set1)  # Elements in set2 but not in set1
+	# Elements in set1 but not in set2
+    l1 = list(set1 - set2)  
+
+	# Elements in set2 but not in set1
+    l2 = list(set2 - set1)  
     
     return [l1, l2]
 
 
 
-print(findDifference([1,2,3], [2,4,6]))
+print(findDifference(nums1 = [1,2,3,3], nums2 = [1,1,2,2]))

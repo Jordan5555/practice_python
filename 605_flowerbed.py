@@ -23,6 +23,8 @@ flowerbed[i] is 0 or 1.
 There are no two adjacent flowers in flowerbed.
 0 <= n <= flowerbed.length
 
+Link to check: https://www.youtube.com/watch?v=ZGxqqjljpUI
+
 """
 
 'Solution 1:' 
@@ -63,10 +65,13 @@ def canPlaceFlowers(flowerbed, n):
     
     # Iterate through the flowerbed
     for i in range(length):
+
         # Check if the current spot is empty and the neighbors (if any) are also empty
         if flowerbed[i] == 0 and (i == 0 or flowerbed[i-1] == 0) and (i == length-1 or flowerbed[i+1] == 0):
+
             # Place a flower at the current spot
             flowerbed[i] = 1
+
             # Decrease the count of flowers needed
             n -= 1
             

@@ -81,6 +81,7 @@ def isAnagram(string1, string2):
     for char in string2:
         if char in char_count:
             char_count[char] -= 1
+            
             # If count goes to zero, remove the character from the dictionary
             if char_count[char] == 0:
                 del char_count[char]
